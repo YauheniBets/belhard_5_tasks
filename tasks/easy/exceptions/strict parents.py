@@ -55,4 +55,20 @@ def random_gift():
 if __name__ == '__main__':
     print("Просим показать ребенка дневник\n")
     gift = None
+    try:
+        score = get_score()
+        if score < 7:
+            raise ValueError(score)
+        else:
+            print ('Ребенок получил хорошую оценку')
+            gift = random_gift()
+    except RuntimeError:
+        punish_dog()
+    except ValueError:
+        punish_child(score)
+    else:
+        praise(gift)
+    finally:
+        cook_dinner()
+
     # TODO написать свой код здесь
