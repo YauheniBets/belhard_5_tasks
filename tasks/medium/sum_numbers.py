@@ -12,7 +12,11 @@ num_sum(321) -> 6
 
 
 def num_sum(numb: int) -> int:
-    result = None
+    result = 0
+    while numb > 0:
+        last_digit = numb % 10  # извлекаем последнюю цифру числа - остаток от деления
+        result += last_digit
+        numb = numb // 10  # делим нацело, чтобы отбросить дробную часть
     return result
 
 
