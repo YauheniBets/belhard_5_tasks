@@ -38,7 +38,6 @@ var2 = (-b - кв.корень(d))/2a
 - resolve_equation(1, 12, 36) -> (0, 1, -6, None)
 """
 
-
 def resolve_equation(a: float, b: float, c: float) -> tuple:
     """Решает квадратное уравнение, возвращает дискриминант и корни уравнения
 
@@ -51,10 +50,17 @@ def resolve_equation(a: float, b: float, c: float) -> tuple:
      первый корень, второй корень)
     :rtype: tuple
     """
-    d = None
+    d = b ** 2 - (4 * a * c)
     n_var = None
-    var1 = None
-    var2 = None
+    var1 = ((-b) + d ** .5) / (2 * a)
+    var2 = ((-b) - d ** .5) / (2 * a)
+    if d > 0:
+        n_var = 2
+    elif d == 0:
+        n_var = 1
+        var2 = None
+    elif d < 0:
+        n_var = 'корней нет'
     return d, n_var, var1, var2
 
 

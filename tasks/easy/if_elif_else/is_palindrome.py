@@ -25,7 +25,11 @@ def is_palindrome(check_str: str) -> bool:
     :return: True - палиндром, False - нет
     :rtype: bool
     """
-    result = None
+    result = check_str[::-1]
+    if check_str.casefold() == check_str.casefold()[::-1]:
+        result = True
+    else:
+        result = False
     return result
 
 
